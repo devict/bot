@@ -1,22 +1,28 @@
 import { Hono } from "npm:hono";
 import { tbValidator } from "npm:@hono/typebox-validator";
-import { Type } from "npm:@sinclair/typebox";
-import { ChallengeSchema, AppMentionSchema } from "./events.ts";
+import { SlackEventSchema } from "./events.ts";
+import { commands } from "./commands.ts";
 
 const app = new Hono();
 
-app.post(
-  "/slack/event",
-  tbValidator("json", Type.Union([ChallengeSchema, AppMentionSchema])),
-  (c) => {
-    const body = c.req.valid("json");
-    switch (body.type) {
-      case "url_verification":
-        return c.json({ challenge: body.challenge });
-      case "app_mention":
-        return c.text(body.text);
+app.post("/slack/event", tbValidator("json", SlackEventSchema), async (c) => {
+  const body = c.req.valid("json");
+
+  switch (body.type) {
+    case "url_verification":
+      return c.json({ challenge: body.challenge });
+
+    case "app_mention": {
+      const command = commands.find((cmd) => cmd.matcher.test(body.text));
+      if (!command) {
+        return c.json({ text: "wat?" }, 400);
+      }
+
+      await command.handler(body);
+
+      return c.text("OK");
     }
-  },
-);
+  }
+});
 
 Deno.serve(app.fetch);

@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
 
 /**
  * https://api.slack.com/events/url_verification
@@ -8,6 +8,7 @@ export const ChallengeSchema = Type.Object({
   token: Type.String(),
   challenge: Type.String(),
 });
+export type Challenge = Static<typeof ChallengeSchema>;
 
 /**
  * https://api.slack.com/events/app_mention
@@ -20,3 +21,7 @@ export const AppMentionSchema = Type.Object({
   channel: Type.String(),
   event_ts: Type.String(),
 });
+export type AppMention = Static<typeof AppMentionSchema>;
+
+export const SlackEventSchema = Type.Union([ChallengeSchema, AppMentionSchema]);
+export type SlackEvent = Static<typeof SlackEventSchema>;

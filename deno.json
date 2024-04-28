@@ -13,6 +13,7 @@
   "imports": {
     "@hono/typebox-validator": "npm:@hono/typebox-validator@^0.2.3",
     "@sinclair/typebox": "npm:@sinclair/typebox@^0.32.26",
+    "@slack/web-api": "npm:@slack/web-api@^7.0.4",
     "hono": "https://deno.land/x/hono/mod.ts@^4.2.8"
   }
 }
