@@ -1,9 +1,11 @@
 import { Hono } from "npm:hono";
 import { tbValidator } from "npm:@hono/typebox-validator";
 import { SlackEventSchema } from "./events.ts";
-import { commands } from "./commands.ts";
+import { pingCommand } from "./commands/ping.ts";
 
 const app = new Hono();
+
+const commands = [pingCommand];
 
 app.post("/slack/event", tbValidator("json", SlackEventSchema), async (c) => {
   const body = c.req.valid("json");
