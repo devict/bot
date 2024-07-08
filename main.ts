@@ -1,9 +1,12 @@
+import * as dotenv from "@std/dotenv";
 import { Hono } from "@hono/hono";
 import { validator } from "@hono/hono/validator";
 import { logger } from "@hono/hono/logger";
 import { SlackEventSchema } from "./events.ts";
 import { Value as V } from "@sinclair/typebox/value";
 import { commands } from "./commands/mod.ts";
+
+dotenv.load();
 
 const app = new Hono();
 

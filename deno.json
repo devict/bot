@@ -14,6 +14,7 @@
     "@hono/hono": "jsr:@hono/hono@^4.4.12",
     "@hono/typebox-validator": "npm:@hono/typebox-validator@^0.2.4",
     "@sinclair/typebox": "npm:@sinclair/typebox@^0.32.26",
-    "@slack/web-api": "npm:@slack/web-api@^7.0.4"
+    "@slack/web-api": "npm:@slack/web-api@^7.0.4",
+    "@std/dotenv": "jsr:@std/dotenv@^0.224.2"
   }
 }
