@@ -2,15 +2,29 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "jsr:@hono/hono@^4.4.12": "jsr:@hono/hono@4.4.12",
       "npm:@hono/typebox-validator": "npm:@hono/typebox-validator@0.2.3_@sinclair+typebox@0.32.26_hono@4.2.8",
+      "npm:@hono/typebox-validator@^0.2.4": "npm:@hono/typebox-validator@0.2.4_@sinclair+typebox@0.32.26_hono@4.2.8",
       "npm:@sinclair/typebox": "npm:@sinclair/typebox@0.32.26",
       "npm:@sinclair/typebox@^0.32.26": "npm:@sinclair/typebox@0.32.26",
       "npm:@slack/web-api": "npm:@slack/web-api@6.9.0",
       "npm:hono": "npm:hono@4.2.8"
     },
+    "jsr": {
+      "@hono/hono@4.4.12": {
+        "integrity": "75658e5402dc95df483a1961b8fb4ef73391a2c70109f97ad8e12d3b7b6f03c5"
+      }
+    },
     "npm": {
       "@hono/typebox-validator@0.2.3_@sinclair+typebox@0.32.26_hono@4.2.8": {
         "integrity": "sha512-WjR7g6PKFG//yaC82nxmM1ytxSyk8hQjq78bqOfkkZNxGDzWGrhyBTieozrzpXZf9gF29RcSklDpSpNIQhmzFQ==",
+        "dependencies": {
+          "@sinclair/typebox": "@sinclair/typebox@0.32.26",
+          "hono": "hono@4.2.8"
+        }
+      },
+      "@hono/typebox-validator@0.2.4_@sinclair+typebox@0.32.26_hono@4.2.8": {
+        "integrity": "sha512-AsQ6Lh6qgR301qrNDsrf9DJPqBJyztjD0l6m1/QsXjuCYsKdpVdAUaSLQjsKd3fHKsC0xKH0joYHqOc9CZYyhw==",
         "dependencies": {
           "@sinclair/typebox": "@sinclair/typebox@0.32.26",
           "hono": "hono@4.2.8"
@@ -213,7 +227,8 @@
   },
   "workspace": {
     "dependencies": [
-      "npm:@hono/typebox-validator@^0.2.3",
+      "jsr:@hono/hono@^4.4.12",
+      "npm:@hono/typebox-validator@^0.2.4",
       "npm:@sinclair/typebox@^0.32.26",
       "npm:@slack/web-api@^7.0.4"
     ]

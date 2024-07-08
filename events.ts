@@ -23,5 +23,7 @@ export const AppMentionSchema = Type.Object({
 });
 export type AppMention = Static<typeof AppMentionSchema>;
 
-export const SlackEventSchema = Type.Union([ChallengeSchema, AppMentionSchema]);
+export const SlackEventSchema = Type.Object({
+  event: Type.Union([ChallengeSchema, AppMentionSchema]),
+});
 export type SlackEvent = Static<typeof SlackEventSchema>;

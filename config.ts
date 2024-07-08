@@ -6,5 +6,4 @@ const assertEnv = (key: string) => {
 
 export const config = {
   SLACK_TOKEN: assertEnv("SLACK_TOKEN"),
-  SLACK_WEBHOOK_URL: assertEnv("SSLACK_WEBHOOK_URL"),
 } as const;

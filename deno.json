@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "start": "deno run --allow-net main.ts",
+    "start": "deno run --allow-net --allow-env main.ts",
     "deploy": "deployctl deploy --org=devICT --project=devict-bot",
     "deploy:prod": "deployctl deploy --org=devICT --project=devict-bot --prod"
   },
@@ -11,9 +11,9 @@
     "entrypoint": "main.ts"
   },
   "imports": {
-    "@hono/typebox-validator": "npm:@hono/typebox-validator@^0.2.3",
+    "@hono/hono": "jsr:@hono/hono@^4.4.12",
+    "@hono/typebox-validator": "npm:@hono/typebox-validator@^0.2.4",
     "@sinclair/typebox": "npm:@sinclair/typebox@^0.32.26",
-    "@slack/web-api": "npm:@slack/web-api@^7.0.4",
-    "hono": "https://deno.land/x/hono/mod.ts@^4.2.8"
+    "@slack/web-api": "npm:@slack/web-api@^7.0.4"
   }
 }
