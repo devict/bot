@@ -1,6 +1,6 @@
 import { Command } from "./mod.ts";
-import { AppMention } from "../events.ts";
-import { slack } from "../slack.ts";
+import { AppMention } from "../lib/events.ts";
+import { slack } from "../lib/slack.ts";
 
 export const pingCommand: Command<AppMention> = {
   matcher: /ping/,

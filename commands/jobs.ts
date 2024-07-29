@@ -1,8 +1,8 @@
 import { type Static, Type } from "@sinclair/typebox";
 import { Value } from "@sinclair/typebox/value";
-import { config } from "../config.ts";
-import { AppMention } from "../events.ts";
-import { slack } from "../slack.ts";
+import { config } from "../lib/config.ts";
+import { AppMention } from "../lib/events.ts";
+import { slack } from "../lib/slack.ts";
 import { Command } from "./mod.ts";
 
 export const jobsCommand: Command<AppMention> = {
