@@ -19,7 +19,7 @@ The events the bot responds to are defined in the `events.ts` module. Typebox sc
 
 ## Development
 
-There is a separate Slack app for development (`@bot (test)`) that can be used. Reach out to [@seth](https://devict.slack.com/archives/D19FFBMPB) in Slack for the `SLACK_TOKEN`!
+There is a separate Slack app for development (`@bot (test)`) that can be used. Reach out to [@seth](https://devict.slack.com/archives/D19FFBMPB) in Slack for the `SLACK_TOKEN`.
 
 ## Deployment
 
