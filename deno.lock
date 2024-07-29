@@ -3,20 +3,16 @@
   "packages": {
     "specifiers": {
       "jsr:@hono/hono@^4.4.12": "jsr:@hono/hono@4.4.12",
-      "jsr:@std/dotenv@^0.224.2": "jsr:@std/dotenv@0.224.2",
       "npm:@hono/typebox-validator": "npm:@hono/typebox-validator@0.2.3_@sinclair+typebox@0.32.26_hono@4.2.8",
-      "npm:@hono/typebox-validator@^0.2.4": "npm:@hono/typebox-validator@0.2.4_@sinclair+typebox@0.32.26_hono@4.2.8",
       "npm:@sinclair/typebox": "npm:@sinclair/typebox@0.32.26",
       "npm:@sinclair/typebox@^0.32.26": "npm:@sinclair/typebox@0.32.26",
+      "npm:@sinclair/typebox@^0.32.35": "npm:@sinclair/typebox@0.32.35",
       "npm:@slack/web-api": "npm:@slack/web-api@6.9.0",
       "npm:hono": "npm:hono@4.2.8"
     },
     "jsr": {
       "@hono/hono@4.4.12": {
         "integrity": "75658e5402dc95df483a1961b8fb4ef73391a2c70109f97ad8e12d3b7b6f03c5"
-      },
-      "@std/dotenv@0.224.2": {
-        "integrity": "29081695357e4534696c9e986b2560be29c141ccf52daa32b6c20ff5b5c64ab9"
       }
     },
     "npm": {
@@ -27,15 +23,12 @@
           "hono": "hono@4.2.8"
         }
       },
-      "@hono/typebox-validator@0.2.4_@sinclair+typebox@0.32.26_hono@4.2.8": {
-        "integrity": "sha512-AsQ6Lh6qgR301qrNDsrf9DJPqBJyztjD0l6m1/QsXjuCYsKdpVdAUaSLQjsKd3fHKsC0xKH0joYHqOc9CZYyhw==",
-        "dependencies": {
-          "@sinclair/typebox": "@sinclair/typebox@0.32.26",
-          "hono": "hono@4.2.8"
-        }
-      },
       "@sinclair/typebox@0.32.26": {
         "integrity": "sha512-enTSM8+gUGFsIPSnVU1ApmYd9IZZ8tjVIOB0/RUh0ufxDcRbZdWjElpKIXwpZ9yGXVO/eQTKchnbc+LgC0gfTw==",
+        "dependencies": {}
+      },
+      "@sinclair/typebox@0.32.35": {
+        "integrity": "sha512-Ul3YyOTU++to8cgNkttakC0dWvpERr6RYoHO2W47DLbFvrwBDJUY31B1sImH6JZSYc4Kt4PyHtoPNu+vL2r2dA==",
         "dependencies": {}
       },
       "@slack/logger@3.0.0": {
@@ -232,9 +225,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@hono/hono@^4.4.12",
-      "jsr:@std/dotenv@^0.224.2",
-      "npm:@hono/typebox-validator@^0.2.4",
-      "npm:@sinclair/typebox@^0.32.26",
+      "npm:@sinclair/typebox@^0.32.35",
       "npm:@slack/web-api@^7.0.4"
     ]
   }

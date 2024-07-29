@@ -1,12 +1,9 @@
-import * as dotenv from "@std/dotenv";
 import { Hono } from "@hono/hono";
 import { validator } from "@hono/hono/validator";
 import { logger } from "@hono/hono/logger";
 import { SlackEventSchema } from "./events.ts";
 import { Value as V } from "@sinclair/typebox/value";
 import { commands } from "./commands/mod.ts";
-
-dotenv.load();
 
 const app = new Hono();
 
@@ -31,8 +28,12 @@ app.post(
         return c.json({ challenge: body.event.challenge });
 
       case "app_mention": {
-        const msg = body.event.text;
+        // Remove the bot mention from the message
+        const msg = body.event.text.replace(/^<@.+>\s*/, "");
+
+        // Find the first command that has a match
         const command = commands.find((cmd) => cmd.matcher.test(msg));
+
         if (!command) {
           return c.json({ text: "wat?" }, 400);
         }
@@ -45,4 +46,4 @@ app.post(
   }
 );
 
-Deno.serve(app.fetch);
+Deno.serve({ port: 3927 }, app.fetch);

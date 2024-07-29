@@ -1,0 +1,16 @@
+{
+  "type": "event_callback",
+  "token": "ABCXYZ",
+  "team_id": "T12345678",
+  "api_app_id": "A12345678",
+  "event": {
+    "type": "app_mention",
+    "user": "U12345678",
+    "text": "<@U12345678> jobs",
+    "ts": "1612289127.000200",
+    "channel": "C02N7CW42JE",
+    "event_ts": "1612289127.000200"
+  },
+  "event_id": "Ev12345678",
+  "event_time": 1612289127
+}
