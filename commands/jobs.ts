@@ -5,7 +5,7 @@ import { AppMention, slack } from "../lib/slack.ts";
 import { Command } from "./mod.ts";
 
 export const jobsCommand: Command<AppMention> = {
-  matcher: /^<@.+> jobs$/,
+  matcher: (msg) => /^<@.+>\s+jobs$/.test(msg.trim()),
   handler: async (event) => {
     const jobs = await fetchJobs();
 

@@ -30,13 +30,12 @@ export const initServer = () => {
           return c.json({ challenge: body.event.challenge });
 
         case "app_mention": {
-          // Remove the bot mention from the message
-          const msg = body.event.text.replace(/^<@.+>\s*/, "");
-
           // Find the first command that has a match
-          const command = commands.find((cmd) => cmd.matcher.test(msg));
+          const msg = body.event.text;
+          const command = commands.find((cmd) => cmd.matcher(msg));
 
           if (!command) {
+            console.log(`no command matched for message: ${msg}`);
             return c.json({ text: "wat?" }, 400);
           }
 
