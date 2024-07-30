@@ -21,6 +21,14 @@ The events the bot responds to are defined in the `events.ts` module. Typebox sc
 
 There is a separate Slack app for development (`@bot (test)`) that can be used. Reach out to [@seth](https://devict.slack.com/archives/D19FFBMPB) in Slack for the `SLACK_TOKEN`.
 
+Simulate events from Slack hitting your local server with the `bin/simulate-message` util.
+
+```
+$ bin/simulate-message.ts "@bot ping"
+```
+
+You won't see the simulated message in Slack, but the response will show up there from `@bot (test)`.
+
 ## Deployment
 
 Bot is deployed on Deno Deploy. The Slack App points to the `/slack/event` endpoint of the deployed bot API (this repo).

@@ -1,4 +1,5 @@
 export const config = {
+  APP_PORT: assertEnv("APP_PORT"),
   JOB_BOARD_URL: assertEnv("JOB_BOARD_URL"),
   SLACK_TOKEN: assertEnv("SLACK_TOKEN"),
 } as const;
