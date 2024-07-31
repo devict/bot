@@ -1,5 +1,6 @@
 {
   "tasks": {
+    "cache": "deno cache main.ts",
     "start": "deno run --env --allow-net --allow-sys --allow-env main.ts",
     "test": "deno test --env --allow-sys --allow-env",
     "deploy": "deployctl deploy --org=devICT --project=devict-bot",

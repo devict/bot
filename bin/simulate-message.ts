@@ -1,5 +1,4 @@
-#!/usr/bin/env -S asdf exec deno run --env --allow-env --allow-net
-// console.log(`deno install: ${Deno.env.get("DENO_INSTALL")}`);
+#!/usr/bin/env -S deno run --env --allow-env --allow-net
 
 import { config } from "../lib/config.ts";
 import { type AppMention } from "../lib/slack.ts";
