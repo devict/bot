@@ -42,6 +42,12 @@ Simulate events from Slack hitting your local server with the `bin/simulate-mess
 $ bin/simulate-message.ts "@bot ping"
 ```
 
+or for windows
+
+```
+deno run --env --allow-env --allow-net .\bin\simulate-message.ts "@bot ping" 
+```
+
 You won't see the simulated message in Slack, but the response will show up there from `@bot (test)`.
 
 ## Slack App
