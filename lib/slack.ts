@@ -24,6 +24,7 @@ export const AppMentionSchema = Type.Object({
   ts: Type.String(),
   channel: Type.String(),
   event_ts: Type.String(),
+  thread_ts: Type.Optional(Type.String()),
 });
 export type AppMention = Static<typeof AppMentionSchema>;
 
