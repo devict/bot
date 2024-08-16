@@ -1,7 +1,7 @@
 import { type Static, Type } from "@sinclair/typebox";
 import { Value } from "@sinclair/typebox/value";
 import { config } from "../lib/config.ts";
-import { AppMention, slack } from "../lib/slack.ts";
+import { AppMention, respondInThread, slack } from "../lib/slack.ts";
 import { Command } from "./mod.ts";
 
 export const jobsCommand: Command<AppMention> = {
@@ -16,10 +16,12 @@ export const jobsCommand: Command<AppMention> = {
       })
       .join("\n");
 
-    await slack.chat.postMessage({
-      channel: event.channel,
-      text: jobsMessage,
-    });
+    // await slack.chat.postMessage({
+    //   channel: event.channel,
+    //   text: jobsMessage,
+    // });
+
+    respondInThread(event, jobsMessage);
   },
   helpText:"displays a list of jobs",
   name:"jobs"
