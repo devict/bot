@@ -21,6 +21,8 @@ export const jobsCommand: Command<AppMention> = {
       text: jobsMessage,
     });
   },
+  helpText:"displays a list of jobs",
+  name:"jobs"
 };
 
 const JobSchema = Type.Object({
