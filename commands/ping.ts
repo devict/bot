@@ -4,7 +4,6 @@ import { AppMention, respondInThread, slack } from "../lib/slack.ts";
 export const pingCommand: Command<AppMention> = {
   matcher: (msg) => /^<@.+> ping$/.test(msg),
   handler: async (event) => {
-        
     // const response = await slack.chat.postMessage({
     //   channel: event.channel,
     //   text: "pong",
@@ -14,8 +13,7 @@ export const pingCommand: Command<AppMention> = {
     const response = await respondInThread(event, "pong");
 
     console.log(response);
-    
   },
-  name:"ping",
-  helpText:"pong"
+  name: "ping",
+  helpText: "pong",
 };

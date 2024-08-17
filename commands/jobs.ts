@@ -23,8 +23,8 @@ export const jobsCommand: Command<AppMention> = {
 
     respondInThread(event, jobsMessage);
   },
-  helpText:"displays a list of jobs",
-  name:"jobs"
+  helpText: "displays a list of jobs",
+  name: "jobs",
 };
 
 const JobSchema = Type.Object({
@@ -46,7 +46,7 @@ async function fetchJobs(): Promise<Static<typeof JobsRespSchema>> {
   });
   if (!response.ok) {
     throw new Error(
-      `Failed to fetch jobs: ${response.statusText} (${response.status})`
+      `Failed to fetch jobs: ${response.statusText} (${response.status})`,
     );
   }
   const json = await response.json();
