@@ -15,10 +15,16 @@ query {
 }
 `.trim();
 
-  const respData = await fetch("https://api.meetup.com/gql", {
+  const resp = await fetch("https://api.meetup.com/gql", {
     method: "POST",
     body: JSON.stringify({ query: gql }),
-  }).then((r) => r.json());
+  })
+
+  if (!resp.ok) {
+    throw new Error(`meetup request failed: ${await resp.text()}`);
+  }
+
+  const respData = await resp.json();
 
   const events = respData.data.groupByUrlname.upcomingEvents.edges.map((e) => ({
     ...e.node,
