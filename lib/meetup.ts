@@ -1,4 +1,13 @@
-export async function getEvents() {
+
+
+interface Event {
+  date:Date,
+  dateTime:string,
+  title:string,
+  shortUrl:string,
+}
+
+export async function getEvents() : Promise<Event[]> {
   const gql = `
 query {
   groupByUrlname(urlname: "devICT") {
@@ -26,10 +35,16 @@ query {
 
   const respData = await resp.json();
 
-  const events = respData.data.groupByUrlname.upcomingEvents.edges.map((e) => ({
+  console.log(respData.data.groupByUrlname.upcomingEvents.edges);
+  
+
+  const events:Event[] = respData.data.groupByUrlname.upcomingEvents.edges.map((e) => ({
     ...e.node,
     date: new Date(e.node.dateTime),
   }));
+
+  console.log(events);
+  
 
   const eventsInTheNextWeek = events.filter((e) => {
     const now = new Date();
@@ -37,6 +52,12 @@ query {
     return e.date > now && e.date < endOfNextWeek;
   });
 
+  return eventsInTheNextWeek;
+
+
+}
+
+export function convertEventsToDisplayString(events:Event[]):string {
   const weekday = (date: Date) =>
     date.toLocaleString("en-us", {
       weekday: "long",
@@ -49,7 +70,7 @@ query {
       timeZone: "America/Chicago",
     });
 
-  const eventLines = eventsInTheNextWeek.map(({ date, title, shortUrl }) =>
+  const eventLines = events.map(({ date, title, shortUrl }) =>
     `
   :boom: *<${shortUrl}|${title}>*: ${weekday(date)} (${timeStr(date)})
 `.trim()
