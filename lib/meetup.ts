@@ -25,7 +25,7 @@ query {
     date: new Date(e.node.dateTime),
   }));
 
-  const eventsThisWeek = events.filter((e) => {
+  const eventsInTheNextWeek = events.filter((e) => {
     const now = new Date();
     const endOfNextWeek = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
     return e.date > now && e.date < endOfNextWeek;
@@ -52,7 +52,7 @@ query {
       timeZone: "America/Chicago",
     });
 
-  const eventLines = eventsThisWeek.map(({ date, title, shortUrl }) =>
+  const eventLines = eventsInTheNextWeek.map(({ date, title, shortUrl }) =>
     `
   :boom: *<${shortUrl}|${title}>*: ${weekday(date)} (${timeStr(date)})
 `.trim()
