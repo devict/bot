@@ -37,6 +37,7 @@ interface EventWithTS {
   ts: string;
   thread_ts?: string;
 }
+
 export async function respondInThread(event: EventWithTS, text: string) {
   const thread_ts = event.thread_ts || event.ts;
   const response = await slack.chat.postMessage({
