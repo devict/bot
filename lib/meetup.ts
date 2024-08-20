@@ -31,12 +31,12 @@ query {
     return e.date > now && e.date < endOfNextWeek;
   });
 
-  const weekday = (date) =>
+  const weekday = (date:Date) =>
     date.toLocaleString("en-us", {
       weekday: "long",
       timeZone: "America/Chicago",
     });
-  const timeStr = (date) =>
+  const timeStr = (date:Date) =>
     date.toLocaleString("en-us", {
       hour: "2-digit",
       minute: "2-digit",
