@@ -33,8 +33,12 @@ export const SlackEventSchema = Type.Object({
 });
 export type SlackEvent = Static<typeof SlackEventSchema>;
 
-export async function respondInThread(event: AppMention, text: string) {
-  const thread_ts = event.thread_ts ?? event.ts;
+interface EventWithTS {
+  ts: string;
+  thread_ts?: string;
+}
+export async function respondInThread(event: EventWithTS, text: string) {
+  const thread_ts = event.thread_ts || event.ts;
   const response = await slack.chat.postMessage({
     channel: event.channel,
     text: text,
