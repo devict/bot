@@ -16,10 +16,6 @@ export const jobsCommand: Command<AppMention> = {
       })
       .join("\n");
 
-    // await slack.chat.postMessage({
-    //   channel: event.channel,
-    //   text: jobsMessage,
-    // });
 
     respondInThread(event, jobsMessage);
   },
