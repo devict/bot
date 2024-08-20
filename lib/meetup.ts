@@ -66,7 +66,7 @@ query {
 
   const msg =
     `*<https://meetup.com/devict>|Events happening this week*\r\n\r\n${eventLines}`;
-
+  const msg = `*<https://meetup.com/devict|Events happening this week>*\r\n\r\n${eventLines}`;
   //console.log(msg);
 
   return msg;
