@@ -7,7 +7,7 @@ interface Event {
   shortUrl:string,
 }
 
-export async function getEvents() : Promise<Event[]> {
+export async function getEventsInTheNextWeek() : Promise<Event[]> {
   const gql = `
 query {
   groupByUrlname(urlname: "devICT") {
