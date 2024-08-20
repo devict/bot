@@ -36,7 +36,7 @@ export type SlackEvent = Static<typeof SlackEventSchema>;
 interface EventWithTS {
   ts: string;
   thread_ts?: string;
-  channel:string;
+  channel: string;
 }
 
 export async function respondInThread(event: EventWithTS, text: string) {
