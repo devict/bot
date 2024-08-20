@@ -31,15 +31,6 @@ query {
     return e.date > now && e.date < endOfNextWeek;
   });
 
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
   const weekday = (date) =>
     date.toLocaleString("en-us", {
       weekday: "long",
