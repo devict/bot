@@ -18,7 +18,7 @@ query {
   const resp = await fetch("https://api.meetup.com/gql", {
     method: "POST",
     body: JSON.stringify({ query: gql }),
-  })
+  });
 
   if (!resp.ok) {
     throw new Error(`meetup request failed: ${await resp.text()}`);
@@ -37,12 +37,12 @@ query {
     return e.date > now && e.date < endOfNextWeek;
   });
 
-  const weekday = (date:Date) =>
+  const weekday = (date: Date) =>
     date.toLocaleString("en-us", {
       weekday: "long",
       timeZone: "America/Chicago",
     });
-  const timeStr = (date:Date) =>
+  const timeStr = (date: Date) =>
     date.toLocaleString("en-us", {
       hour: "2-digit",
       minute: "2-digit",
@@ -55,7 +55,8 @@ query {
 `.trim()
   ).join("\r\n");
 
-  const msg = `*<https://meetup.com/devict|Events happening this week>*\r\n\r\n${eventLines}`;
+  const msg =
+    `*<https://meetup.com/devict|Events happening this week>*\r\n\r\n${eventLines}`;
 
   return msg;
 }

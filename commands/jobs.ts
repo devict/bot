@@ -16,7 +16,6 @@ export const jobsCommand: Command<AppMention> = {
       })
       .join("\n");
 
-
     respondInThread(event, jobsMessage);
   },
   helpText: "displays a list of jobs",
