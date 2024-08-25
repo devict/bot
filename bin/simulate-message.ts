@@ -24,9 +24,9 @@ const payload: AppMention = {
   type: "app_mention",
   user: "U07AY8LEWUF",
   text: message,
-  ts: "1626252625.000200",
+  ts: "1723835381.746579",
   channel: BOT_TESTING_CHANNEL,
-  event_ts: "1626252625.000200",
+  event_ts: "1723832846.938799",
 };
 
 // send the payload to the local server

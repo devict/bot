@@ -15,7 +15,7 @@ export const initServer = () => {
     validator("json", (value, c) => {
       if (!V.Check(SlackEventSchema, value)) {
         const errors = [...V.Errors(SlackEventSchema, value)].map(
-          ({ path, message }) => ({ path, message })
+          ({ path, message }) => ({ path, message }),
         );
         console.log("bad request", errors);
         return c.json({ errors }, 400);
@@ -44,7 +44,7 @@ export const initServer = () => {
           return c.text("OK");
         }
       }
-    }
+    },
   );
 
   return app;

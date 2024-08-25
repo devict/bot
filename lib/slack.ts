@@ -24,6 +24,7 @@ export const AppMentionSchema = Type.Object({
   ts: Type.String(),
   channel: Type.String(),
   event_ts: Type.String(),
+  thread_ts: Type.Optional(Type.String()),
 });
 export type AppMention = Static<typeof AppMentionSchema>;
 
@@ -31,3 +32,19 @@ export const SlackEventSchema = Type.Object({
   event: Type.Union([ChallengeSchema, AppMentionSchema]),
 });
 export type SlackEvent = Static<typeof SlackEventSchema>;
+
+interface EventWithTS {
+  ts: string;
+  thread_ts?: string;
+  channel: string;
+}
+
+export async function respondInThread(event: EventWithTS, text: string) {
+  const thread_ts = event.thread_ts || event.ts;
+  const response = await slack.chat.postMessage({
+    channel: event.channel,
+    text: text,
+    thread_ts: thread_ts,
+  });
+  return response;
+}
