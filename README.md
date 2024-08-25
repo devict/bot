@@ -65,6 +65,21 @@ deno run --env --allow-env --allow-net .\bin\simulate-message.ts "@bot ping"
 You won't see the simulated message in Slack, but the response will show up
 there from `@bot (test)`.
 
+#### Testing reply in thread responses
+
+To test reply in thread responses, you can pass a `thread_ts` to the `simulate-message.ts command`.
+
+```
+$ bin/simulate-message.ts "@bot events" "1724586898.242849"
+```
+
+To get the `thread_ts` for your message:
+
+- Post a message of your own in the `#bot-testing` channel
+- Post _another_ message as a threaded reply to the first one
+- Copy the link to the threaded reply message
+- Grab the `thread_ts` query param from the URL
+
 ## Slack App
 
 This bot is installed in the devICT work space as a Slack app called **bot**.

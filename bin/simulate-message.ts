@@ -18,15 +18,16 @@ if (!_message) {
 
 // replace @bot with the test bot username mention (`<@ABC123>`)
 const message = _message.replaceAll("@bot", TEST_BOT_ID);
+const threadTs = Deno.args[1] ?? "1723835381.746579";
 
 // create an app_mention event payload with the `#bot-testing` channel ID
 const payload: AppMention = {
   type: "app_mention",
   user: "U07AY8LEWUF",
   text: message,
-  ts: "1723835381.746579",
+  ts: threadTs,
   channel: BOT_TESTING_CHANNEL,
-  event_ts: "1723832846.938799",
+  event_ts: threadTs,
 };
 
 // send the payload to the local server
