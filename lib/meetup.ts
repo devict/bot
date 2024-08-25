@@ -39,7 +39,7 @@ query {
     (e) => ({
       ...e.node,
       date: new Date(e.node.dateTime),
-    }),
+    })
   );
 
   console.log(events);
@@ -66,14 +66,15 @@ export function convertEventsToDisplayString(events: Event[]): string {
       timeZone: "America/Chicago",
     });
 
-  const eventLines = events.map(({ date, title, shortUrl }) =>
-    `
+  const eventLines = events
+    .map(({ date, title, shortUrl }) =>
+      `
   :boom: *<${shortUrl}|${title}>*: ${weekday(date)} (${timeStr(date)})
 `.trim()
-  ).join("\r\n");
+    )
+    .join("\r\n");
 
-  const msg =
-    `*<https://meetup.com/devict|Events happening this week>*\r\n\r\n${eventLines}`;
+  const msg = `*<https://meetup.com/devict|Events happening this week>*\r\n\r\n${eventLines}`;
 
   return msg;
 }
