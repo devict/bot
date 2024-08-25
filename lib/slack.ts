@@ -1,5 +1,8 @@
 import { Static, Type } from "@sinclair/typebox";
-import { WebClient as SlackClient } from "npm:@slack/web-api";
+import {
+  ChatPostMessageArguments,
+  WebClient as SlackClient,
+} from "npm:@slack/web-api";
 import { config } from "./config.ts";
 
 export const slack = new SlackClient(config.SLACK_TOKEN);
@@ -39,12 +42,21 @@ interface EventWithTS {
   channel: string;
 }
 
-export async function respondInThread(event: EventWithTS, text: string) {
+type ExtraPostMessageArgs = Omit<
+  ChatPostMessageArguments,
+  "channel" | "text" | "thread_ts" | "ts"
+>;
+export async function respondInThread(
+  event: EventWithTS,
+  text: string,
+  extraArgs?: ExtraPostMessageArgs
+) {
   const thread_ts = event.thread_ts || event.ts;
   const response = await slack.chat.postMessage({
     channel: event.channel,
     text: text,
     thread_ts: thread_ts,
+    ...extraArgs,
   });
   return response;
 }

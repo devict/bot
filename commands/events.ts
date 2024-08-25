@@ -1,5 +1,5 @@
 import { Command } from "./mod.ts";
-import { AppMention, slack } from "../lib/slack.ts";
+import { AppMention, respondInThread, slack } from "../lib/slack.ts";
 import {
   convertEventsToDisplayString,
   getEventsInTheNextWeek,
@@ -10,9 +10,9 @@ export const eventsCommand: Command<AppMention> = {
   handler: async (event) => {
     const events = await getEventsInTheNextWeek();
     const text = convertEventsToDisplayString(events);
-    await slack.chat.postMessage({
-      channel: event.channel,
-      text: text,
+    await respondInThread(event, text, {
+      unfurl_links: false,
+      unfurl_media: false,
     });
   },
   name: "events",
